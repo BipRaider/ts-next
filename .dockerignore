@@ -1,0 +1,15 @@
+# folder
+/node_modules
+/.vscode
+/nginx
+/.husky
+
+# files
+npm-debug.log
+# .editorconfig
+# .eslintrc.json
+.gitignore
+
+# md
+README.md
+*.md
