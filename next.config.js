@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   reactStrictMode: true,
-
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
   webpackDevMiddleware: config => {
     config.watchOptions = {
       poll: 1000,

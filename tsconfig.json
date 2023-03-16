@@ -6,9 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "allowJs": false,
+    "skipLibCheck": true, // Игнор ошибок в библиотеках при сборке
     "strict": true,
+    "strictPropertyInitialization": false, //Не обязательно инициализировать проперти в классах
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -28,7 +29,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/**/*"
+    "src/**/*",
+    "next.config.js"
   ],
   "exclude": [
     "node_modules",
