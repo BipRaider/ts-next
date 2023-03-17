@@ -1,0 +1,37 @@
+import React from 'react';
+import cn from 'classnames';
+import { motion } from 'framer-motion';
+
+import ArrowIcon from './arrow.svg';
+import styles from './Button.module.scss';
+import { ButtonProps } from './Button.props';
+
+export const Button: React.FC<ButtonProps> = ({
+  appearance,
+  arrow = 'none',
+  children,
+  className,
+  ...props
+}: ButtonProps): JSX.Element => {
+  return (
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      className={cn(styles.button, className, {
+        [styles.primary]: appearance === 'primary',
+        [styles.ghost]: appearance === 'ghost',
+      })}
+      {...props}
+    >
+      {children}
+      {arrow !== 'none' && (
+        <span
+          className={cn(styles.arrow, {
+            [styles.down]: arrow === 'down',
+          })}
+        >
+          <ArrowIcon />
+        </span>
+      )}
+    </motion.button>
+  );
+};

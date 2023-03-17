@@ -1,0 +1,24 @@
+@use '../color' as *;
+
+@function styles($mode, $type) {
+  @each $key, $map in $themes {
+    @if $key == $type {
+      @each $prop, $color in $map {
+        @if $prop != $mode {
+          @return $color;
+        }
+      }
+    }
+  }
+}
+
+$themes: (
+  color: (
+    dark: $foreground-rgb-dark,
+    light: $foreground-rgb-light,
+  ),
+  background_body: (
+    dark: linear-gradient(to bottom, $background-start-rgb-light, $background-end-rgb-light),
+    light: linear-gradient(to bottom, $background-start-rgb-dark, $background-end-rgb-dark),
+  ),
+);
