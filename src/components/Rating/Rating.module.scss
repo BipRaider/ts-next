@@ -1,0 +1,41 @@
+@use '../../styles/styles' as *;
+
+.filled svg {
+  transition: all 0.2s;
+
+  fill: $primary;
+}
+
+.star {
+  display: inline-block;
+
+  svg {
+    margin-right: 5px;
+  }
+}
+
+.editable {
+  cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.ratingWrapper {
+  position: relative;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+
+  color: $red;
+}
+
+.error svg {
+  stroke: $red;
+}
