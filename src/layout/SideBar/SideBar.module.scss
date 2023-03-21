@@ -1,0 +1,11 @@
+@use '../../styles/styles' as *;
+
+.sidebar {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.logo {
+  margin-top: 30px;
+}

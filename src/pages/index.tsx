@@ -1,32 +1,34 @@
-import { Htag, Button, P, Tag, Rating } from '@src/components';
-import { useState } from 'react';
-import { Layout } from '@src/layout';
+import React from 'react';
+import { GetStaticProps } from 'next/types';
+import axios from 'axios';
 
-export default function Home(): JSX.Element {
-  useState;
-  const [rating, setRating] = useState(4);
-  return (
-    <Layout>
-      <Htag tag='h1'>h1</Htag>
-      <Htag tag='h2'>h2</Htag>
-      <Htag tag='h3'>h3</Htag>
+import { Htag } from '@src/components';
+import { withLayout } from '@src/layout';
+import { MenuItem } from '@src/interfaces/menu.interface';
+import { API } from '@src/helpers/api';
 
-      <Button appearance='primary' arrow='right'>
-        primary
-      </Button>
-      <Button appearance='ghost' arrow='down'>
-        ghost
-      </Button>
-      <P size='s'> small text </P>
-      <P size='m'> average text </P>
-      <P size='l'> big text </P>
-      <Tag color='ghost'>tag ghost</Tag>
-      <Tag color='green'>tag green</Tag>
-      <Tag color='grey'>tag grey</Tag>
-      <Tag color='red'>tag red</Tag>
-      <Tag color='primary'>tag primary</Tag>
-
-      <Rating rating={rating} isEditable={true} setRating={setRating} />
-    </Layout>
-  );
+interface HomeProps extends Record<string, unknown> {
+  menu: MenuItem[];
+  firstCategory: number;
 }
+
+const Home: React.FC<HomeProps> = (): JSX.Element => {
+  return (
+    <>
+      <Htag tag='h1'>Home</Htag>
+    </>
+  );
+};
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  try {
+    const firstCategory = 0;
+    const { data } = await axios.post<MenuItem[]>(API.topPage.find, { firstCategory });
+
+    return { props: { menu: data, firstCategory } };
+  } catch (error) {
+    return { notFound: true };
+  }
+};
+
+export default withLayout(Home);

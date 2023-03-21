@@ -8,7 +8,7 @@
     "start": "next start",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "lint": "next lint --fix",
-    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "eslint": "eslint src/**/*.{ts,tsx} --fix",
     "stylelint": "stylelint \"**/*.scss\" --fix",
     "docker:up": "docker-compose up -d",
     "docker:dev": "docker-compose rm -sf app-dev && docker-compose -f docker-compose.yaml up -d app-dev",

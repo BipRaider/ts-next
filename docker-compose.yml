@@ -11,6 +11,9 @@ services:
       - /opt/app/node_modules
       - /opt/app/.next
       - .:/opt/app/
+    env_file:
+      - ./.env
+      - ./.env.local
     expose:
       - 3000
 

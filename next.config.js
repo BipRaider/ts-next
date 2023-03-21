@@ -3,8 +3,12 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
+  largePageDataBytes: 128 * 10_000,
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
+  },
+  images: {
+    domains: ['courses-top.ru'],
   },
   webpackDevMiddleware: config => {
     config.watchOptions = {

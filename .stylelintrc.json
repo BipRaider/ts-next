@@ -8,7 +8,7 @@
     "scss/selector-no-redundant-nesting-selector": true,
     "declaration-no-important": true,
     "declaration-property-unit-allowed-list": {
-      "font-size": ["em", "px"],
+      "font-size": ["em", "px", "%"],
       "/^animation/": "s"
     },
     "declaration-block-no-redundant-longhand-properties": [
