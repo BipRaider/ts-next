@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { API } from '@src/helpers/api';
 import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import cn from 'classnames';
+
+import { API } from '@src/helpers/api';
 
 import styles from './ReviewForm.module.scss';
 import { ReviewFormProps } from './ReviewForm.props';
@@ -46,26 +47,43 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.reviewForm, className)} {...props}>
         <Input
-          {...register('name', { required: { value: true, message: 'Заполните имя' } })}
+          {...register('name', {
+            required: {
+              value: true,
+              message: 'Заполните имя',
+            },
+          })}
           placeholder='Имя'
           error={errors.name}
           tabIndex={isOpened ? 0 : -1}
           aria-invalid={errors.name ? true : false}
         />
+
         <Input
-          {...register('title', { required: { value: true, message: 'Заполните заголовок' } })}
+          {...register('title', {
+            required: {
+              value: true,
+              message: 'Заполните заголовок',
+            },
+          })}
           placeholder='Заголовок отзыва'
           className={styles.title}
           error={errors.title}
           tabIndex={isOpened ? 0 : -1}
           aria-invalid={errors.title ? true : false}
         />
+
         <div className={styles.rating}>
           <span>Оценка:</span>
           <Controller
             control={control}
             name='rating'
-            rules={{ required: { value: true, message: 'Укажите рейтинг' } }}
+            rules={{
+              required: {
+                value: true,
+                message: 'Укажите рейтинг',
+              },
+            }}
             render={({ field }) => (
               <Rating
                 isEditable
@@ -78,8 +96,14 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
             )}
           />
         </div>
+
         <Textarea
-          {...register('description', { required: { value: true, message: 'Заполните описание' } })}
+          {...register('description', {
+            required: {
+              value: true,
+              message: 'Заполните описание',
+            },
+          })}
           placeholder='Текст отзыва'
           className={styles.description}
           error={errors.description}
@@ -87,6 +111,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
           aria-label='Текст отзыва'
           aria-invalid={errors.description ? true : false}
         />
+
         <div className={styles.submit}>
           <Button appearance='primary' tabIndex={isOpened ? 0 : -1} onClick={() => clearErrors()}>
             Отправить
@@ -94,6 +119,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
+
       {isSuccess && (
         <div className={cn(styles.success, styles.panel)} role='alert'>
           <div className={styles.successTitle}>Ваш отзыв отправлен</div>
@@ -103,6 +129,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
           </button>
         </div>
       )}
+
       {error && (
         <div className={cn(styles.error, styles.panel)} role='alert'>
           Что-то пошло не так, попробуйте обновить страницу

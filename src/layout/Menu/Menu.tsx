@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-import { motion, useReducedMotion } from 'framer-motion';
+import { Variants, motion, useReducedMotion } from 'framer-motion';
 import React, { useContext, KeyboardEvent } from 'react';
 
 import { AppContext } from '@src/context/app.context';
@@ -16,9 +16,10 @@ export const Menu: React.FC = (): JSX.Element => {
   const shouldReduceMotion = useReducedMotion();
   const router = useRouter();
 
-  const variants = {
+  const variants: Variants = {
     visible: {
       marginBottom: 10,
+      display: 'block',
       transition: shouldReduceMotion
         ? {}
         : {
@@ -26,10 +27,10 @@ export const Menu: React.FC = (): JSX.Element => {
             staggerChildren: 0.1,
           },
     },
-    hidden: { margin: 0, padding: 0 },
+    hidden: { margin: 0, padding: 0, display: 'none' },
   };
 
-  const variantsChildren = {
+  const variantsChildren: Variants = {
     visible: {
       opacity: 1,
       height: 29,

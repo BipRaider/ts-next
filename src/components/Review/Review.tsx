@@ -1,11 +1,14 @@
 import cn from 'classnames';
 import { format } from 'date-fns';
+import * as Locale from 'date-fns/locale';
 
 import styles from './Review.module.scss';
 import { ReviewProps } from './Review.props';
 import UserIcon from './user.svg';
 
 import { Rating } from '../Rating';
+
+const { uk } = Locale;
 
 export const Review = ({ review, className, ...props }: ReviewProps): JSX.Element => {
   const { name, title, description, createdAt, rating } = review;
@@ -16,7 +19,7 @@ export const Review = ({ review, className, ...props }: ReviewProps): JSX.Elemen
         <span className={styles.name}>{name}:</span>&nbsp;&nbsp;
         <span>{title}</span>
       </div>
-      <div className={styles.date}>{format(new Date(createdAt), 'dd MMMM yyyy')}</div>
+      <div className={styles.date}>{format(new Date(createdAt), 'dd MMMM yyyy', { locale: uk })}</div>
       <div className={styles.rating}>
         <Rating rating={rating} />
       </div>
