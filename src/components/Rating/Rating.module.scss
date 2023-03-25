@@ -19,7 +19,8 @@
 
   transition: all 0.2s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.2);
   }
 }

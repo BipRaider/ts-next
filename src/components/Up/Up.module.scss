@@ -1,0 +1,22 @@
+@use '../../styles/styles' as *;
+
+.up {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  width: 40px;
+  height: 40px;
+
+  background: $primary;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px $scroll-up-bx;
+
+  cursor: pointer;
+}
+
+.up:hover {
+  background-color: $primary-hover;
+}

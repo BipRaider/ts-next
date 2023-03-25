@@ -21,27 +21,34 @@
   display: grid;
   grid-template-columns: auto auto;
   gap: 40px;
+
+  button {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 8px;
+
+    align-items: center;
+
+    font-size: 16px;
+    line-height: 22px;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      color: $primary-hover;
+
+      transform: scale(1.1);
+    }
+  }
 }
 
 .sortName {
   display: none;
-}
-
-.sort button {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 8px;
-
-  align-items: center;
-
-  font-size: 16px;
-  line-height: 22px;
-
-  background: none;
-
-  border: none;
-
-  cursor: pointer;
 }
 
 .sort button:not(.active) {

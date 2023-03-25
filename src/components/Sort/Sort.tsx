@@ -12,6 +12,7 @@ export const Sort = ({ sort, setSort, className, ...props }: SortProps): JSX.Ele
 
       <button
         id='rating'
+        tabIndex={0}
         onClick={() => setSort(SortEnum.Rating)}
         className={cn({
           [styles.active]: sort === SortEnum.Rating,
@@ -25,6 +26,7 @@ export const Sort = ({ sort, setSort, className, ...props }: SortProps): JSX.Ele
 
       <button
         id='price'
+        tabIndex={0}
         onClick={() => setSort(SortEnum.Price)}
         className={cn({
           [styles.active]: sort === SortEnum.Price,

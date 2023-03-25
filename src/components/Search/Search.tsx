@@ -5,8 +5,9 @@ import { useRouter } from 'next/router';
 import styles from './Search.module.scss';
 import { SearchProps } from './Search.props';
 import GlassIcon from './glass.svg';
-import { Input } from '../Input/Input';
-import { Button } from '../Button/Button';
+
+import { Input } from '../Input';
+import { Button } from '../Button';
 
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
   const [search, setSearch] = useState<string>('');
@@ -36,7 +37,13 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         onChange={e => setSearch(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <Button appearance='primary' className={styles.button} onClick={goToSearch} aria-label='Искать по сайту'>
+      <Button
+        appearance='primary'
+        tabIndex={0}
+        className={styles.button}
+        onClick={goToSearch}
+        aria-label='Искать по сайту'
+      >
         <GlassIcon />
       </Button>
     </form>

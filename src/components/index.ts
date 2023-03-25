@@ -14,3 +14,5 @@ export * from './Product';
 export * from './ReviewForm';
 export * from './Review';
 export * from './Advantages';
+export * from './Up';
+export * from './ButtonIcon';

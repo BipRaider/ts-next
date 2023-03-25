@@ -48,6 +48,9 @@ const Rating = (
           /** Помощью пробела будет нажиматься на тот компонент что выбран */
           onKeyDown={handleKey}
           ref={r => ratingArrayRef.current?.push(r)}
+          /** Данные для работы с Search Reader
+           ** https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes
+           */
           role={isEditable ? 'slider' : ''}
           aria-invalid={error ? true : false}
           aria-valuenow={rating}

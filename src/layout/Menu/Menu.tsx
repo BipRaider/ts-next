@@ -89,6 +89,7 @@ export const Menu: React.FC = (): JSX.Element => {
           return (
             <li key={m._id.secondCategory}>
               <button
+                // tabIndex={0}
                 onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)}
                 onClick={() => openSecondLevel(m._id.secondCategory)}
                 aria-expanded={m.isOpened}
@@ -101,7 +102,6 @@ export const Menu: React.FC = (): JSX.Element => {
                 variants={variants}
                 initial={m.isOpened ? 'visible' : 'hidden'}
                 animate={m.isOpened ? 'visible' : 'hidden'}
-                // className={styles.secondLevelBlock}
                 className={cn(styles.secondLevelBlock, {
                   ['.hidden-elem']: !m.isOpened,
                 })}
@@ -122,9 +122,9 @@ export const Menu: React.FC = (): JSX.Element => {
           <div
             tabIndex={isOpened ? 0 : -1}
             className={cn(styles.thirdLevel, {
-              [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,
+              [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
             })}
-            aria-current={`/${route}/${p.alias}` == router.asPath ? 'page' : false}
+            aria-current={`/${route}/${p.alias}` === router.asPath ? 'page' : false}
           >
             <span>{p.category}</span>
           </div>
