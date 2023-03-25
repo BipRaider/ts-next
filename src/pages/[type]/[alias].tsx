@@ -10,6 +10,8 @@ import { firstLevelMenu } from '@src/helpers/helpers';
 import { MenuItem, TopLevelCategory, TopPageModel, ProductModel } from '@src/interfaces';
 import { TopPageComponent } from '@src/page-components';
 
+import { Error404 } from '../404';
+
 interface TopPageProps extends Record<string, unknown> {
   firstCategory: TopLevelCategory;
   menu: MenuItem[];
@@ -19,6 +21,10 @@ interface TopPageProps extends Record<string, unknown> {
 
 /** Шаблон страниц для рендеринга. */
 const Course: React.FC<TopPageProps> = ({ firstCategory, page, products }: TopPageProps): JSX.Element => {
+  if (!page || !products) {
+    return <Error404 />;
+  }
+
   return (
     <>
       <Head>

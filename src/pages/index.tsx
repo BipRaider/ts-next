@@ -1,5 +1,6 @@
 import React from 'react';
 import { GetStaticProps } from 'next/types';
+import NextError from 'next/error';
 import axios from 'axios';
 
 import { Htag } from '@src/components';
@@ -16,6 +17,7 @@ const Home: React.FC<HomeProps> = (): JSX.Element => {
   return (
     <>
       <Htag tag='h1'>Home</Htag>
+      <NextError statusCode={404} />
     </>
   );
 };
