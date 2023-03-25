@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  app:
+    container_name: app
+    image: "docker.pkg.github.com/BipRaider/ts-next/ts-next:develop"
+    restart: always
+    command: npm run dev
+    expose:
+      - 3000
+
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - '80:80'
+    depends_on:
+      - app
+
