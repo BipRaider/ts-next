@@ -9,10 +9,11 @@
       "esnext"
     ],
     "allowJs": false,
-    "skipLibCheck": true, // Игнор ошибок в библиотеках при сборке
-    "strict": true,
+    "noImplicitAny": false, // Если будет any игнорировать его и не падать при сборке
     "strictPropertyInitialization": false, //Не обязательно инициализировать проперти в классах
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true, // Игнор ошибок в библиотеках при сборке
+    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
